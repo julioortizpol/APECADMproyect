@@ -1,0 +1,26 @@
+<mdc-dialog class="dialogadmselectiontoproyect">
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>Asignar Admnistradores de proyectos</mdc-dialog-title>
+            <mdc-dialog-content>
+                <form id="newProyectFrom" style="margin-top: 5%;">
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Buscar Empleado"></mdc-text-field>
+                    </mdc-form-field>
+                </form>
+                <mdc-list *ngFor="let user of usersData" disableRipple avatar twoLine>
+                    <mdc-list-item *ngIf="user.validate">
+                            <mdc-icon mdcListItemGraphic>person</mdc-icon>
+                            <mdc-list-item-text [secondaryText]="user.Dni">{{user.name}} {{user.lastName}}
+                            </mdc-list-item-text>
+                            <mdc-checkbox mdcListItemMeta></mdc-checkbox>
+                    </mdc-list-item>
+                </mdc-list>
+            </mdc-dialog-content>
+            <mdc-dialog-actions>
+                <button mdcDialogButton mdcDialogAction="close">Cancelar</button>
+                <button mdcDialogButton mdcDialogAction="close">Agregar</button>
+            </mdc-dialog-actions>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

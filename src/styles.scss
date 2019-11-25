@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+$mdc-theme-primary: #00777e; // primary color
+$mdc-theme-secondary: #388e3c; // secondary color
+
+@import "~@angular-mdc/theme/material";
+
+body{
+    margin: 0%;
+}
+
+.demo-top-app-bar-with-tabs {
+    @include mdc-top-app-bar-fill-color($mdc-theme-primary);
+  
+    .mdc-tab-bar {
+      margin-top: 1em;
+  
+      @media (max-width: 599px) {
+        margin-top: .5em;
+      }
+  
+      .mdc-tab {
+        @include mdc-tab-text-label-color(on-primary);
+        @include mdc-tab-icon-color(on-primary);
+      }
+  
+      .mdc-tab__ripple {
+        @include mdc-states(black);
+      }
+  
+      .mdc-tab-indicator {
+        @include mdc-tab-indicator-underline-color(black);
+        @include mdc-tab-indicator-underline-height(4px);
+      }
+    }
+  }
+
+  //Heder user drawer styles
+
+  .demo-drawer--custom {
+    @include mdc-drawer-border-color(lightblue);
+    @include mdc-drawer-subtitle-ink-color(darkolivegreen);
+    @include mdc-drawer-surface-fill-color(black);
+    @include mdc-drawer-item-icon-ink-color(darkolivegreen);
+    @include mdc-drawer-title-ink-color(darkolivegreen);
+    @include mdc-drawer-activated-overlay-color(darkcyan);
+    @include mdc-drawer-item-text-ink-color(darkolivegreen);
+    @include mdc-drawer-item-activated-text-ink-color(darkcyan);
+    @include mdc-drawer-item-activated-icon-ink-color(darkcyan);
+  }
+  
+  .demo-drawer--accessible {
+    @include mdc-drawer-fill-color-accessible(darkcyan);
+    @include mdc-drawer-activated-overlay-color(pink);
+    @include mdc-drawer-item-activated-text-ink-color(pink);
+    @include mdc-drawer-item-activated-icon-ink-color(pink);
+  }
+
+  //dialog employe selection in proyect
+
+  .dialogcreatenewuser{
+    @include mdc-dialog-min-width(600px);
+  }
+
+  //create and user button
+  .primarycolorFAB {
+    @include mdc-fab-accessible(#00777e);
+  }
+
+  .demo-card--music {
+    @include mdc-card-shape-radius(24px 4px);
+  
+    @include mdc-rtl {
+      @include mdc-card-shape-radius(4px 24px);
+    }
+  }
+  
+  //estilos tarjetas proyectos
+  .demo-card__music-row {
+    display: flex;
+    border-top-left-radius: inherit;
+  
+    @include mdc-rtl {
+      border-top-left-radius: 0;
+      border-top-right-radius: inherit;
+    }
+  }
+  
+  .demo-card__media--music {
+    width: 110px;
+    border-top-left-radius: inherit;
+    background-image: url(assets/joptechlogo.png);
+    @include mdc-rtl {
+      border-top-left-radius: 0;
+      border-top-right-radius: inherit;
+    }
+  }

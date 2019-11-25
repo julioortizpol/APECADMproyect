@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutAlign="center none">
+    <h1>Creación de departamento de calidad</h1>
+</div>
+<div fxLayout="row" fxLayoutAlign="center none">
+    <h2>90%</h2>
+</div>
+<div fxLayout="row" fxLayoutAlign="center none" style="margin-bottom: 2%;">
+    <mdc-linear-progress fxFlex="60" determinate [progress]="0.9" secondary></mdc-linear-progress>
+</div>
+<div fxLayout="row" fxLayoutAlign="center none">
+
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mdc-tab-bar [activeTabIndex]="0">
+        <mdc-tab-scroller>
+            <mdc-tab label="Tareas" [routerLink]="['/mainpage/detalleproyecto/tareas']"></mdc-tab>
+            <mdc-tab label="Detalles" [routerLink]="['/mainpage/detalleproyecto/detalles']"></mdc-tab>
+            <mdc-tab label="Participantes" [routerLink]="['/mainpage/detalleproyecto/personal']"></mdc-tab>
+        </mdc-tab-scroller>
+    </mdc-tab-bar>
+</div>
+
+<div style="margin-top: 1%;">
+    <router-outlet></router-outlet>
+</div>

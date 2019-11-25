@@ -1,0 +1,78 @@
+<mdc-top-app-bar class="demo-top-app-bar-with-tabs" fixed [scrollTarget]="fixedContent">
+    <mdc-top-app-bar-row>
+        <mdc-top-app-bar-section align="start" title="EasyProjectManagment">
+            <button mdcTopAppBarNavIcon [routerLink]="['/mainpage/proyectos']">
+                <mdc-icon>home</mdc-icon>
+            </button>
+        </mdc-top-app-bar-section>
+        <mdc-top-app-bar-section align="end">
+            <mdc-icon (click)="opencreateProyectComponent()" mdcTopAppBarActionItem>add</mdc-icon>
+            <mdc-icon (click)="notificationsdrawer.open = !notificationsdrawer.open" mdcTopAppBarActionItem>
+                notifications</mdc-icon>
+            <mdc-icon (click)="helpdrawer.open = !helpdrawer.open" mdcTopAppBarActionItem>help</mdc-icon>
+            <mdc-icon (click)="userdrawer.open = !userdrawer.open" mdcTopAppBarActionItem>account_circle</mdc-icon>
+        </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+    <mdc-top-app-bar-row>
+        <mdc-top-app-bar-section>
+            <mdc-tab-bar [activeTabIndex]="activatedtab">
+                <mdc-tab-scroller>
+                    <mdc-tab *ngFor="let tab of tabs" [label]="tab.label" [icon]='tab.icon'
+                        [routerLink]="['/mainpage',tab.path]"></mdc-tab>
+                </mdc-tab-scroller>
+            </mdc-tab-bar>
+        </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+<!--User Drawer-->
+<mdc-drawer drawer="modal" dir="rtl" #userdrawer>
+    <h2 mdcDrawerTitle class="drawertitle">Cuenta</h2>
+    <mdc-list-divider></mdc-list-divider>
+    <mdc-drawer-header>
+        <h3 mdcDrawerTitle>Ortiz Pol, Julio Antonio</h3>
+        <h6 mdcDrawerSubtitle>Empleado: 20190536</h6>
+        <h6 mdcDrawerSubtitle>Desarrollador WEB</h6>
+        <h6 mdcDrawerSubtitle>j.ortiz@joptech.com</h6>
+    </mdc-drawer-header>
+    <mdc-list-divider></mdc-list-divider>
+    <mdc-drawer-content dir="rtl">
+        <mdc-list>
+            <mdc-list-item (click)="logout()" *ngFor="let item of userDrawerActions" [activated]="item.activated">
+                <mdc-icon mdcListItemGraphic *ngIf="item.icon">{{item.icon}}</mdc-icon>{{item.label}}
+            </mdc-list-item>
+        </mdc-list>
+    </mdc-drawer-content>
+</mdc-drawer>
+
+<!--Notifications Drawer-->
+<mdc-drawer drawer="modal" dir="rtl" #notificationsdrawer>
+    <mdc-drawer-header>
+        <h3 mdcDrawerTitle class="drawertitle">Notificaciones</h3>
+    </mdc-drawer-header>
+    <mdc-drawer-content dir="rtl">
+        <mdc-list>
+            <mdc-list-item>
+
+            </mdc-list-item>
+        </mdc-list>
+    </mdc-drawer-content>
+</mdc-drawer>
+
+<!--Help Drawer-->
+<mdc-drawer drawer="modal" dir="rtl" #helpdrawer>
+    <mdc-drawer-header>
+        <h3 mdcDrawerTitle class="drawertitle">Ayuda</h3>
+    </mdc-drawer-header>
+    <mdc-drawer-content dir="rtl">
+        <mdc-list >
+            <mdc-list-item *ngFor="let item of helpDrawerActions" [activated]="item.activated">
+                {{item.label}}
+            </mdc-list-item>
+        </mdc-list>
+    </mdc-drawer-content>
+</mdc-drawer>
+
+<div #fixedContent style="padding-top: 135px;">
+    <router-outlet></router-outlet>
+</div>

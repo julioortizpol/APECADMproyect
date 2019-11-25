@@ -1,0 +1,37 @@
+<ng-template [ngIf]="elementVisible">
+    <div fxLayout="row" fxLayoutAlign="center none">
+        <h2>Lista de tareas</h2>
+    </div>
+</ng-template>
+<ng-template [ngIf]="!elementVisible">
+    <div fxLayout="row" fxLayoutAlign="center none">
+        <button (click)="openCreateTaskDialog()" style="margin-top: 2%; margin-bottom: 2%;" class="primarycolorFAB" mdc-fab extended
+            icon="add" label="Crear tarea">
+        </button>
+    </div>
+</ng-template>
+
+<div fxLayout="row" fxLayoutAlign="center">
+    <mdc-data-table fxFlex="80">
+        <table mdcDataTableTable>
+            <thead>
+                <tr mdcDataTableHeaderRow>
+                    <th mdcDataTableHeaderCell>Tarea</th>
+                    <th mdcDataTableHeaderCell numeric>Fecha de inicio</th>
+                    <th mdcDataTableHeaderCell numeric>Duración estimada</th>
+                    <th mdcDataTableHeaderCell>Progreso</th>
+                    <th mdcDataTableHeaderCell>Proyecto</th>
+                </tr>
+            </thead>
+            <tbody mdcDataTableContent>
+                <tr (click)="openTaskDetailDialog()" mdcDataTableRow *ngFor="let task of tasks">
+                    <td mdcDataTableCell>{{task.name}}</td>
+                    <td mdcDataTableCell numeric>{{task.startDate}}</td>
+                    <td mdcDataTableCell numeric>{{task.duration}}</td>
+                    <td mdcDataTableCell numeric>{{task.progres}}</td>
+                    <td mdcDataTableCell>{{task.proyect}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mdc-data-table>
+</div>

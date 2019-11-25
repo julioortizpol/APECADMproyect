@@ -1,0 +1,48 @@
+<mdc-dialog>
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>Nuevo Proyecto</mdc-dialog-title>
+            <mdc-dialog-content>
+                <form [formGroup]="newProyectFrom" id="newProyectFrom" style="margin-top: 5%;">
+                    <mdc-form-field fluid style="margin-bottom: 0.5%;">
+                        <mdc-text-field outlined label="Nombre del plan" required [helperText]="standardHelper"
+                            formControlName="planName"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor coloque un nombre para su plan
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid style="margin-bottom: 0.5%;">
+                        <mdc-text-field type="date" outlined label="Fecha de inicio">
+                            <mdc-icon mdcTextFieldIcon trailing clickable>event</mdc-icon>
+                        </mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca la fecha de inicio
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid style="margin-bottom: 0.5%;">
+                        <mdc-text-field type="date" outlined label="Fecha de fin">
+                            <mdc-icon mdcTextFieldIcon trailing clickable>event</mdc-icon>
+                        </mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca la fecha de fin
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                </form>
+                <a (click)="openasignadmsproyectDialog()" mdc-button style="font-size: 0.8em;">
+                    Agregar administradores de proyecto
+                </a>
+                <mdc-list style="font-size: 0.8em;">
+                    <mdc-list-item>
+                        <mdc-radio name="demo-radio-set"></mdc-radio>
+                        Privado: solo los miembros que agregue podrán ver el contenido del plan
+                    </mdc-list-item>
+                    <mdc-list-item>
+                        <mdc-radio name="demo-radio-set"></mdc-radio>
+                        Público: cualquier miembro de la organización puede ver el contenido de plan
+                    </mdc-list-item>
+                </mdc-list>
+            </mdc-dialog-content>
+            <mdc-dialog-actions>
+                <button mdcDialogButton mdcDialogAction="close">Cancelar</button>
+                <button type="submit" mdcDialogButton (click)="submit()">Crear plan</button>
+            </mdc-dialog-actions>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

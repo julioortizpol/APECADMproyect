@@ -1,0 +1,39 @@
+<mdc-dialog class="dialogcreatenewuser">
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>Crear nueva tarea</mdc-dialog-title>
+            <mdc-dialog-content>
+                <form id="createnewtask" style="margin-top: 5%; margin-right: 3%;">
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Nombre de la tarea" required [helperText]="standardHelper"
+                            formControlName="name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca el nombre de la tarea
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field type="date" outlined label="Fecha de inicio">
+                            <mdc-icon mdcTextFieldIcon trailing clickable>event</mdc-icon>
+                        </mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca la fecha de inicio
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field type="date" outlined label="Fecha de fin">
+                            <mdc-icon mdcTextFieldIcon trailing clickable>event</mdc-icon>
+                        </mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca la fecha de fin
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-textarea label="Descripción" rows="8" cols="40">
+                        </mdc-textarea>
+                    </mdc-form-field>
+                </form>
+            </mdc-dialog-content>
+            <mdc-dialog-actions>
+                <button mdcDialogButton mdcDialogAction="close">Canelar</button>
+                <button mdcDialogButton (click)="submit()">Crear tarea</button>
+            </mdc-dialog-actions>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

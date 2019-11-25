@@ -1,0 +1,45 @@
+<mdc-dialog class="dialogcreatenewuser">
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>Crear un nuevo usuario</mdc-dialog-title>
+            <mdc-dialog-content>
+                <form id="createNewUser" style="margin-top: 5%; margin-right: 3%;">
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Nombre Completo" 
+                        required [helperText]="standardHelper" formControlName = "name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca el nombre del empleado
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="DNI" 
+                        required [helperText]="standardHelper" formControlName = "name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor Introduzca el DNI del empleado
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Teléfono" 
+                        required [helperText]="standardHelper" formControlName = "name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca el telefono del empleado
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Correo electrónico" 
+                        required [helperText]="standardHelper" formControlName = "name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca el Correo del empleado
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                    <mdc-form-field fluid>
+                        <mdc-text-field outlined label="Fecha de contratación" 
+                        required [helperText]="standardHelper" formControlName = "name"></mdc-text-field>
+                        <mdc-helper-text #standardHelper validation>Por favor introduzca la fecha de contratacion del usuario
+                        </mdc-helper-text>
+                    </mdc-form-field>
+                </form>
+            </mdc-dialog-content>
+            <mdc-dialog-actions>
+                <button mdcDialogButton mdcDialogAction="close">Canelar</button>
+                <button mdcDialogButton (click)="submit()">Crear usuario</button>
+            </mdc-dialog-actions>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

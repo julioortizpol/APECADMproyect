@@ -1,0 +1,22 @@
+<mdc-dialog>
+        <mdc-dialog-container>
+            <mdc-dialog-surface>
+                <mdc-dialog-title>Agregar un archivo</mdc-dialog-title>
+                <mdc-dialog-content>
+                    <form [formGroup]="addfileForm" id="addfileForm" style="margin-top: 5%;">
+                        <mdc-form-field fluid>
+                            <mdc-text-field outlined label="Nombre de archivo" 
+                            required [helperText]="standardHelper" formControlName = "filename"></mdc-text-field>
+                            <mdc-helper-text #standardHelper validation persistent>Por favor introduzca el nombre del archivo
+                            </mdc-helper-text>
+                        </mdc-form-field>
+                        <input type="file" formControlName = "file">
+                    </form>
+                </mdc-dialog-content>
+                <mdc-dialog-actions>
+                    <button mdcDialogButton mdcDialogAction="close">Cancel</button>
+                    <button mdcDialogButton [disabled]="addfileForm.invalid || addfileForm.prestine"  (click)="submit()">Send</button>
+                </mdc-dialog-actions>
+            </mdc-dialog-surface>
+        </mdc-dialog-container>
+    </mdc-dialog>

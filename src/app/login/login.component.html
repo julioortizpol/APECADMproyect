@@ -1,0 +1,43 @@
+<div fxLayoutAlign="center">
+    <img src="assets/joptechlogo.png" height="150px" width="150px">
+</div>
+<div>
+  <h2 mdcHeadline6 style="text-align: center; color: black;">Easy Project Management</h2>
+</div>
+<!--Login form-->
+<div fxLayoutAlign="center" style="margin-top: 0px; margin-bottom: 0px;">
+    <mdc-card class="demo-card">
+        <div class="demo-card__primary">
+          <div fxLayoutAlign="center" >
+              <img  src="assets/userlog.png" height="80px" width="80px">
+          </div>
+        </div>
+        <form [formGroup]='loginForm' id="loginForm" (ngSubmit)= "onSubmit()" >
+            <div class="spacediv" >
+                <mdc-form-field>
+                  <mdc-text-field outlined 
+                  formControlName = "user"
+                  required type = "text" label="User" 
+                  [(ngModel)] = "user.user" style="width: 94%; margin-left: 3%;">
+                  </mdc-text-field>
+                </mdc-form-field>
+              </div>
+              <div class="spacediv">
+                <mdc-form-field>
+                  <mdc-text-field outlined 
+                  required type = "password" 
+                  [(ngModel)] = "user.Pasword" 
+                  formControlName = "userPasword"
+                  label="Pasword" style="margin-left: 3%; width: 94%">
+                  </mdc-text-field>
+                </mdc-form-field>
+              </div> 
+      <mdc-card-actions>
+        <mdc-card-action-buttons>
+          <button mdc-button type = "submit" mdcCardAction="button" >Login</button>
+          <button mdc-button mdcCardAction="button" (click)="openForgotPaswordDialog()">Forget Pasword</button>
+        </mdc-card-action-buttons>
+      </mdc-card-actions>
+    </form>
+    </mdc-card>
+</div>

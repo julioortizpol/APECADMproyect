@@ -1,0 +1,38 @@
+<ng-template [ngIf]="elementVisible">
+<div fxLayout="row" fxLayoutAlign="center none">
+    <button (click)="openAddUserDialog()" style="margin-top: 2%;" class="primarycolorFAB" mdc-fab extended icon="add"
+        label="Agregar usuario">
+    </button>
+</div>
+<div fxLayout="row" fxLayoutAlign="center none">
+    <h2>Lista de empleados</h2>
+</div>
+</ng-template>
+<div fxLayout="row" fxLayoutAlign="center">
+    <mdc-data-table fxFlex="60">
+        <table mdcDataTableTable>
+            <thead>
+                <tr mdcDataTableHeaderRow>
+                    <th mdcDataTableHeaderCell></th>
+                    <th mdcDataTableHeaderCell>Nombre</th>
+                    <th mdcDataTableHeaderCell numeric>Apellido</th>
+                    <th mdcDataTableHeaderCell numeric>Correo</th>
+                    <th mdcDataTableHeaderCell numeric>Dni</th>
+                    <th mdcDataTableHeaderCell>Fecha de contratacion</th>
+                </tr>
+            </thead>
+            <tbody mdcDataTableContent>
+                <tr mdcDataTableRow *ngFor="let user of users">
+                    <td>
+                        <button mdc-icon-button icon="remove_red_eye" (click)="openUserDetailDialog()"></button>
+                    </td>
+                    <td mdcDataTableCell>{{user.name}}</td>
+                    <td mdcDataTableCell numeric>{{user.lastName}}</td>
+                    <td mdcDataTableCell numeric>{{user.mail}}</td>
+                    <td mdcDataTableCell numeric>{{user.Dni}}</td>
+                    <td mdcDataTableCell>{{user.hiringDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mdc-data-table>
+</div>

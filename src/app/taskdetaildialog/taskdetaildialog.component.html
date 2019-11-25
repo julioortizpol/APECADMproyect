@@ -1,0 +1,116 @@
+<mdc-dialog>
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>Contratar especialistas</mdc-dialog-title>
+            <mdc-dialog-content>
+                <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: 2%;">
+                    <h4 style="margin-top:2%; margin-bottom: 2%; margin-right: 2%;">Progreso </h4>
+                    <form [formGroup]="progresstate">
+                        <mdc-select formControlName="selectprogresstate">
+                            <mdc-menu>
+                                <mdc-list>
+                                    <mdc-list-item selected value="No iniciada">No iniciada</mdc-list-item>
+                                    <mdc-list-item value="En curso">En curso</mdc-list-item>
+                                    <mdc-list-item value="Completada">Completada</mdc-list-item>
+                                </mdc-list>
+                            </mdc-menu>
+                        </mdc-select>
+                    </form>
+                </div>
+                <mdc-data-table fxLayoutAlign="center">
+                    <table mdcDataTableTable>
+                        <thead>
+                            <tr mdcDataTableHeaderRow>
+                                <th mdcDataTableHeaderCell>
+                                    <mdc-list twoLine interactive="false">
+                                        <mdc-list-item>
+                                            <mdc-list-item-text secondaryText="Media">Prioridad
+                                            </mdc-list-item-text>
+                                        </mdc-list-item>
+                                    </mdc-list>
+                                </th>
+                                <th mdcDataTableHeaderCell>
+                                    <mdc-list twoLine interactive="false">
+                                        <mdc-list-item>
+                                            <mdc-list-item-text secondaryText="11/5/2019">Fecha de inicio
+                                            </mdc-list-item-text>
+                                        </mdc-list-item>
+                                    </mdc-list>
+                                </th>
+                                <th mdcDataTableHeaderCell>
+                                    <mdc-list twoLine interactive="false">
+                                        <mdc-list-item>
+                                            <mdc-list-item-text secondaryText="20 días">Duración
+                                            </mdc-list-item-text>
+                                        </mdc-list-item>
+                                    </mdc-list>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </mdc-data-table>
+                <div>
+                    <h4 style="margin-top:2%; margin-bottom: 2%;">Descripción</h4>
+                    Participar en le proceso de contratacion de los especialistas para el area de calidad
+                    ayudando al area de recursos humanos en todo el proceso de depuracion de candidatos al puesto
+                </div>
+                <div style="margin-top: 2%;">
+                    <mdc-tab-bar (activated)="logTab($event)" [activeTabIndex]="0" useAutomaticActivation>
+                        <mdc-tab-scroller>
+                            <mdc-tab *ngFor="let tab of tabs" [label]="tab.label" [icon]="tab.icon"></mdc-tab>
+                        </mdc-tab-scroller>
+                    </mdc-tab-bar>
+                </div>
+
+                <ng-template [ngIf]="tabcontentflag">
+                    <div style="margin-top: 2%;" fxLayout="row" fxLayoutAlign="center none">
+                        <button mdc-button>
+                            <span mdcButtonLabel>Agregar participante</span>
+                            <mdc-icon>person_add</mdc-icon>
+                        </button>
+                    </div>
+                    <mdc-list *ngFor="let user of usersData" disableRipple avatar twoLine>
+                        <mdc-list-item *ngIf="user.validate">
+                            <mdc-icon mdcListItemGraphic>person</mdc-icon>
+                            <mdc-list-item-text [secondaryText]="user.Dni">{{user.name}} {{user.lastName}}
+                            </mdc-list-item-text>
+                        </mdc-list-item>
+                    </mdc-list>
+                </ng-template>
+
+                <ng-template [ngIf]="!tabcontentflag">
+                    <div style="margin-top: 2%;" fxLayout="row" fxLayoutAlign="center none">
+                        <button mdc-button (click)="openattachfiledialog()">
+                            <span mdcButtonLabel>Agregar documento</span>
+                            <mdc-icon>attach_file</mdc-icon>
+                        </button>
+                    </div>
+                    <mdc-list twoLine>
+                        <mdc-list-item (click)="openfilehistorydialog()">
+                            <mdc-icon mdcListItemGraphic>insert_drive_file</mdc-icon>
+                            <mdc-list-item-text secondaryText="20/5/2019">
+                                Curriculim Fernando Rojas
+                            </mdc-list-item-text>
+                        </mdc-list-item>
+                        <mdc-list-item (click)="openfilehistorydialog()">
+                            <mdc-icon mdcListItemGraphic>insert_drive_file</mdc-icon>
+                            <mdc-list-item-text secondaryText="18/5/2019">
+                                Detalles de Competencias del puesto
+                            </mdc-list-item-text>
+                        </mdc-list-item>
+                        <mdc-list-item (click)="openfilehistorydialog()">
+                            <mdc-icon mdcListItemGraphic>insert_drive_file</mdc-icon>
+                            <mdc-list-item-text secondaryText="15/5/2019">
+                                Licitación herramientas del area
+                            </mdc-list-item-text>
+                        </mdc-list-item>
+                    </mdc-list>
+                </ng-template>
+            </mdc-dialog-content>
+            <mdc-dialog-actions>
+                <button mdcDialogButton mdcDialogAction="close">Cancel</button>
+                <button mdcDialogButton mdcDialogAction="close">Aceptar</button>
+            </mdc-dialog-actions>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

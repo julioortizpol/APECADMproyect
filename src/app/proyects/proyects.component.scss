@@ -1,0 +1,14 @@
+.demo-card {
+    width: 350px;
+    margin: 28px;
+  }
+  
+  .demo-card__music-info {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
+  }
+  
+  .demo-card__action-buttons--text-only {
+    margin-left: 8px;
+  }
